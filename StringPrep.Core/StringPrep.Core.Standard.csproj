@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp1.0;netcoreapp1.1;netcoreapp2.0;netstandard2.0;net40;net45;net451;net452;net46;net461</TargetFrameworks>
+    <Authors>P. Isaac Hildebrandt</Authors>
+    <Company>PIHI Media, Ltd. Co.</Company>
+    <Copyright>Copyright © 2016</Copyright>
+    <PackageTags>stringprep rfc3454</PackageTags>
+    <Description>Core library for implementing profiles based on RFC 3454</Description>
+    <Product>StringPrep.Core Universal</Product>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Generated\Tables.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Tables.cs</LastGenOutput>
+    </None>
+    <None Update="StringPrep.Core.nuspec">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StringPrep.Core.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Generated\Tables.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Tables.tt</DependentUpon>
+    </Compile>
+    <Compile Update="StringPrep.Core.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StringPrep.Core.nuspec</DependentUpon>
+    </Compile>
+  </ItemGroup> 
+</Project>
